@@ -3,7 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class C_login extends CI_Controller {
 
-	/**
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper("url");
+
+    }
+
+    /**
 	 * Index Page for this controller.
 	 *
 	 * Maps to the following URL
@@ -19,11 +26,12 @@ class C_login extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-            $this->load->view("V_login.php");
-		
-	}
-        public function login(){
+    {
+        $this->load->view("V_login.php");
+
+    }
+    public function login()
+    {
             
-        }
+    }
 }
