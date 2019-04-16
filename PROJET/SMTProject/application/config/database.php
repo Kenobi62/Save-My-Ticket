@@ -74,7 +74,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost;dbname=sava_my_ticket;charset=utf8;',
+	'dsn'	=> 'mysql:host=localhost;dbname=save_my_ticket;charset=utf8;',
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
