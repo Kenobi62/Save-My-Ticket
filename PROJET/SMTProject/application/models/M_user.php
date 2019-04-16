@@ -17,6 +17,12 @@ class M_user extends CI_Model {
         return $resultats;
     }
     
+    public function insert_user($user) {
+
+        $this->db->insert("users",$user);
+        
+    }
+    
     
 
     

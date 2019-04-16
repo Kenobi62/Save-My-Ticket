@@ -26,7 +26,7 @@
 <div class="bg-contact3" style="background-image: url('<?php echo base_url("assets/"); ?>images/bg-02.jpg');">
     <div class="container-contact3">
         <div class="wrap-contact3">
-            <form class="contact3-form validate-form">
+            <form class="contact3-form validate-form" method="post">
                 <img class="logo" src="<?php echo base_url("assets/"); ?>images/ticket.png" width="400" height="187" alt="logo ticket"/>
 
 
@@ -90,12 +90,12 @@
                 </div>-->
 
                 <div class="container-contact3-form-btn">
-                    <button class="contact3-form-btn">
+                    <button class="contact3-form-btn" type="submit">
                         Connexion
                     </button>
                 </div>
                 <div class="container-contact3-form-btn">
-                    <button class="contact4-form-btn">
+                    <button class="contact4-form-btn" type="submit">
                         Inscription
                     </button>
                 </div>
@@ -131,6 +131,18 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
+  
+    $('.contact3-form-btn').on('click',function(){
+        
+        $('.contact3-form').attr('action','<?php echo site_url("C_login/login");?>');
+        
+    });
+    
+    $('.contact4-form-btn').on('click',function(){
+        
+        $('.contact3-form').attr('action','<?php echo site_url("C_login/sign_in");?>');
+        
+    });
 </script>
 
 </body>
