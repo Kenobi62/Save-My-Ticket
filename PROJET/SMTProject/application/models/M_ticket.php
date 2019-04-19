@@ -12,7 +12,7 @@ class M_ticket extends CI_Model {
     public function count_all() {
 
 
-        $query = $this->db->query("select count(*) from ticket");
+        $query = $this->db->query("select count(*) from tickets");
         $resultat = $query->result_array()[0];
         return $resultat;
     }
@@ -20,14 +20,14 @@ class M_ticket extends CI_Model {
     public function select_by_user($id_user) {
 
 
-        $query = $this->db->select("*")->from("ticket")->where("id_user", $id_user)->get();
+        $query = $this->db->select("*")->from("tickets")->where("id_user", $id_user)->get();
         $resultats = $query->result_array();
         return $resultats;
     }
     public function select_by_id($id) {
 
 
-        $query = $this->db->select("*")->from("ticket")->where("id_ticket", $id)->get();
+        $query = $this->db->select("*")->from("tickets")->where("id_ticket", $id)->get();
         $resultat = $query->result_array();
         return $resultat;
     }
@@ -35,7 +35,7 @@ class M_ticket extends CI_Model {
     public function select_by_user_categorie($id_user, $id_cat) {
 
 
-        $query = $this->db->select("*")->from("ticket")->where("id_user", $id_user)->where("id_categorie",$id_cat)->get();
+        $query = $this->db->select("*")->from("tickets")->where("id_user", $id_user)->where("id_categorie",$id_cat)->get();
         $resultats = $query->result_array();
         return $resultats;
     }
@@ -43,14 +43,14 @@ class M_ticket extends CI_Model {
     public function select_by_user_enseigne($id_user, $id_ens) {
 
 
-        $query = $this->db->select("*")->from("ticket")->where("id_user", $id_user)->where("id_enseigne", $id_ens)->get();
+        $query = $this->db->select("*")->from("tickets")->where("id_user", $id_user)->where("id_enseigne", $id_ens)->get();
         $resultats = $query->result_array();
         return $resultats;
     }
     
     public function insert($ticket) {
 
-        $this->db->insert("ticket", $ticket);
+        $this->db->insert("tickets", $ticket);
         $last_id = $this->db->insert_id();
         return $this->select_by_id($last_id)[0];
         

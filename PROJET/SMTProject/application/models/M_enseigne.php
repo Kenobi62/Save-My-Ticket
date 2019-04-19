@@ -12,7 +12,7 @@ class M_enseigne extends CI_Model {
     public function select_by_user($id_user) {
 
 
-        $query = $this->db->select("*")->from("enseigne")->where("id_user", $id_user)->or_where("id_user", NULL)->get();
+        $query = $this->db->select("*")->from("enseignes")->where("id_user", $id_user)->or_where("id_user", NULL)->get();
         $resultats = $query->result_array();
         return $resultats;
     }

@@ -12,7 +12,7 @@ class M_categorie extends CI_Model {
     public function select_by_user($id_user) {
 
 
-        $query = $this->db->select("*")->from("categorie")->where("id_user", $id_user)->or_where("id_user", NULL)->get();
+        $query = $this->db->select("*")->from("categories")->where("id_user", $id_user)->or_where("id_user", NULL)->get();
         $resultats = $query->result_array();
         return $resultats;
     }
