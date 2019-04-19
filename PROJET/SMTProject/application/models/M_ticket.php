@@ -24,6 +24,13 @@ class M_ticket extends CI_Model {
         $resultats = $query->result_array();
         return $resultats;
     }
+    public function select_by_id($id) {
+
+
+        $query = $this->db->select("*")->from("ticket")->where("id_ticket", $id)->get();
+        $resultat = $query->result_array();
+        return $resultat;
+    }
     
     public function select_by_user_categorie($id_user, $id_cat) {
 
@@ -44,6 +51,8 @@ class M_ticket extends CI_Model {
     public function insert($ticket) {
 
         $this->db->insert("ticket", $ticket);
+        $last_id = $this->db->insert_id();
+        return $this->select_by_id($last_id)[0];
         
     }
     

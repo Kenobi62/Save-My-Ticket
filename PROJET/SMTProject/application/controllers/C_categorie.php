@@ -22,8 +22,9 @@ class C_categorie extends CI_Controller {
           public function __construct() {
         parent::__construct();
         $this->load->helper("url");
+        $this->load->model("M_categorie");
         
-    }
+        }
     
 	public function index()
 	{
@@ -31,7 +32,9 @@ class C_categorie extends CI_Controller {
             //$photo = $this->input->post("photo");
             //write_file('./tickets/ticket'.($nbticket+1).'.php', $photo);
             if(isset($_SESSION["user"])){
-                $this->load->view("V_categorie");
+                
+                $data["categories"] = $this->M_categorie->select_by_user($_SESSION["user"]["id_user"]);
+                $this->load->view("V_categorie", $data);
             }else{
                 redirect("C_login/index");
             }
