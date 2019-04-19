@@ -18,11 +18,23 @@ class C_categorie extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+    
+          public function __construct() {
+        parent::__construct();
+        $this->load->helper("url");
+        
+    }
+    
 	public function index()
 	{
-            $nbticket = $this->M_ticket->count_all();
-            $photo = $this->input->post("photo");
-            write_file('./tickets/ticket'.($nbticket+1).'.php', $photo);
+            //$nbticket = $this->M_ticket->count_all();
+            //$photo = $this->input->post("photo");
+            //write_file('./tickets/ticket'.($nbticket+1).'.php', $photo);
+            if(isset($_SESSION["user"])){
+                $this->load->view("V_categorie");
+            }else{
+                redirect("C_login/index");
+            }
 		
 	}
 }

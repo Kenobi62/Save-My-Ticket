@@ -43,7 +43,7 @@ class C_login extends CI_Controller {
             $password = $this->input->post("mdp");
             $result = $this->M_user->select_by_login($login);
             if (count($result) != 0) {
-
+                $user = $result[0];
                 if (password_verify($password, $user["password"])) {
 
                     $_SESSION["user"] = array("id_user" => $user["id_user"], "login" => $user["login"], "pseudo" => $user["pseudo"]);
@@ -69,6 +69,7 @@ class C_login extends CI_Controller {
             if (count($result) == 0) {
                 $user=array("login" => $login, "password" => $passwordHash, "pseudo" => $pseudo);
                 $this->M_user->insert_user($user);
+                $this->index();
             } else {
                 $this->index();
             }

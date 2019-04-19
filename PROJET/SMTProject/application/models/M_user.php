@@ -12,7 +12,7 @@ class M_user extends CI_Model {
     public function select_by_login($login) {
 
 
-        $query = $this->db->select("*")->from("user")->where("login", $login)->get();
+        $query = $this->db->select("*")->from("users")->where("login", $login)->get();
         $resultats = $query->result_array();
         return $resultats;
     }
